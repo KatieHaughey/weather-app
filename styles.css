@@ -1,0 +1,46 @@
+.header {
+  text-align: center;
+  margin: 50px 125px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 50px;
+  background-color: white;
+}
+
+body {
+  background: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%);
+}
+
+.five-days {
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 50px;
+  background-color: white;
+}
+
+.change-city {
+  text-align: center;
+}
+.container {
+  max-width: 550px;
+}
+.emoji {
+  font-size: 50px;
+}
+#degreesToggle {
+  font-size: small;
+}
+#current-city-button {
+  display: block;
+  margin: 25px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: grey;
+}
+#current-city-button:hover {
+  cursor: pointer;
+  background-color: rgb(225, 222, 222);
+}
