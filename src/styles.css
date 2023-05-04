@@ -44,3 +44,7 @@ body {
   cursor: pointer;
   background-color: rgb(225, 222, 222);
 }
+#open-source {
+  padding: 20px;
+  text-align: center;
+}
