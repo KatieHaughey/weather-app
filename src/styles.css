@@ -11,6 +11,12 @@
 body {
   background: linear-gradient(to right, #fff1eb 0%, #ace0f9 100%);
 }
+a {
+  text-decoration: none;
+}
+li {
+  text-transform: capitalize;
+}
 
 .five-days {
   text-align: center;
@@ -34,9 +40,7 @@ body {
   position: relative;
   top: -10px;
 }
-a {
-  text-decoration: none;
-}
+
 #current-city-button {
   display: block;
   margin: 25px auto;
@@ -47,7 +51,7 @@ a {
 }
 #current-city-button:hover {
   cursor: pointer;
-  background-color: rgb(225, 222, 222);
+  background-color: #e5e5e5;
 }
 #open-source {
   padding: 20px;

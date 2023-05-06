@@ -29,10 +29,16 @@ dayAndTime.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 //Temp
 
 function displayTemperature(response) {
-  let cityElement = document.querySelector("h1");
+  let cityElement = document.querySelector("#city-name");
   cityElement.innerHTML = response.data.name;
   let tempElement = document.querySelector("#temp");
   tempElement.innerHTML = Math.round(response.data.main.temp);
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
 //City and then temp
@@ -40,7 +46,7 @@ function displayTemperature(response) {
 function displayNewCity(event) {
   event.preventDefault();
   let enterCity = document.querySelector("#enter-city");
-  let cityElement = document.querySelector("h1");
+  let cityElement = document.querySelector("#city-name");
   cityElement.innerHTML = enterCity.value;
   let unit = "metric";
   let apiKey = "2daf65f0cdaa917f11026e8a128ce271";
