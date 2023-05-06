@@ -70,5 +70,12 @@ function useNavigator(event) {
   navigator.geolocation.getCurrentPosition(getCurrentCity);
 }
 
-let currentCityButton = document.querySelector("#current-city-button");
-currentCityButton.addEventListener("click", useNavigator);
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", useNavigator);
+
+let city = "Manchester";
+let apiKey = "2daf65f0cdaa917f11026e8a128ce271";
+let unit = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+
+axios.get(apiUrl).then(displayTemperature);
