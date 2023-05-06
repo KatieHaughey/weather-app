@@ -53,3 +53,9 @@ a {
   padding: 20px;
   text-align: center;
 }
+#weather-details {
+  list-style-type: none;
+  margin: 40px auto 0px;
+  padding: 0%;
+  color: grey;
+}
