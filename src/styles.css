@@ -35,6 +35,14 @@ li {
 .emoji {
   font-size: 50px;
 }
+.active {
+  color: black;
+  text-decoration: none;
+}
+.active:hover {
+  cursor: default;
+}
+
 #degreesToggle {
   font-size: small;
   position: relative;

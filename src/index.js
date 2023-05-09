@@ -45,6 +45,7 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIconElement.setAttribute("alt", response.data.weather[0].description);
+  celciusTemperature = response.data.main.temp;
 }
 
 //City and then temp
@@ -85,3 +86,37 @@ let unit = "metric";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
 axios.get(apiUrl).then(displayTemperature);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+
+  cTemp.classList.add("active");
+  fTemp.classList.remove("active");
+
+  let temperature = document.querySelector("#temp");
+  temperature.innerHTML = Math.round(celciusTemperature);
+}
+
+let cTemp = document.querySelector("#celsius");
+cTemp.addEventListener("click", convertToCelsius);
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+
+  cTemp.classList.remove("active");
+  fTemp.classList.add("active");
+
+  let temperature = document.querySelector("#temp");
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fTemp = document.querySelector("#fahrenheit");
+fTemp.addEventListener("click", convertToFahrenheit);
+
+let celciusTemperature = null;
+
+celciusTemperature = response.dara.main.temp;
+
+cTemp.classList.add("active");
+fTemp.classList.remove("active");
