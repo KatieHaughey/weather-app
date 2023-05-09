@@ -26,6 +26,8 @@ if (currentMinutes < 10) {
 let dayAndTime = document.querySelector("h3");
 dayAndTime.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 
+//forecast
+
 //Temp
 
 function displayTemperature(response) {
@@ -117,6 +119,3 @@ fTemp.addEventListener("click", convertToFahrenheit);
 let celciusTemperature = null;
 
 celciusTemperature = response.dara.main.temp;
-
-cTemp.classList.add("active");
-fTemp.classList.remove("active");
