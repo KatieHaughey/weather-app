@@ -156,22 +156,22 @@ function convertToCelsius(event) {
   temperature.innerHTML = Math.round(celciusTemperature);
 }
 
-let cTemp = document.querySelector("#celsius");
-cTemp.addEventListener("click", convertToCelsius);
+//let cTemp = document.querySelector("#celsius");
+//cTemp.addEventListener("click", convertToCelsius);
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
+//function convertToFahrenheit(event) {
+//event.preventDefault();
 
-  cTemp.classList.remove("active");
-  fTemp.classList.add("active");
+//cTemp.classList.remove("active");
+//fTemp.classList.add("active");
 
-  let temperature = document.querySelector("#temp");
-  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(fahrenheitTemp);
-}
+//let temperature = document.querySelector("#temp");
+//let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+//temperature.innerHTML = Math.round(fahrenheitTemp);
+//}
 
-let fTemp = document.querySelector("#fahrenheit");
-fTemp.addEventListener("click", convertToFahrenheit);
+//let fTemp = document.querySelector("#fahrenheit");
+//fTemp.addEventListener("click", convertToFahrenheit);
 
 //let celciusTemperature = null;
 
