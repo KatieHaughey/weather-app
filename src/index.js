@@ -28,6 +28,39 @@ dayAndTime.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 
 //forecast
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function name(day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col-2">
+          <div class="weather-forecast-date">
+          ${day}
+          </div>
+          <img 
+          src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" 
+          alt="" 
+          width="50px"/>
+          <div>
+            <span class="weather-forecast-high">
+          18 
+            </span>
+            <span class="weather-forecast-low">
+          12
+            </span>
+          </div>
+        </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Temp
 
 function displayTemperature(response) {
@@ -116,6 +149,8 @@ function convertToFahrenheit(event) {
 let fTemp = document.querySelector("#fahrenheit");
 fTemp.addEventListener("click", convertToFahrenheit);
 
-let celciusTemperature = null;
+//let celciusTemperature = null;
 
-celciusTemperature = response.dara.main.temp;
+//celciusTemperature = response.data.main.temp;
+
+displayForecast();
