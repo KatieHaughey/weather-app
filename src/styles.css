@@ -43,6 +43,10 @@ li {
   cursor: default;
 }
 
+.weather-forecast-low {
+  opacity: 0.5;
+}
+
 #degreesToggle {
   font-size: small;
   position: relative;

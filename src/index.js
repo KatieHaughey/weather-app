@@ -28,33 +28,47 @@ dayAndTime.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
 
 //forecast
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let futureDate = new Date(timestamp * 1000);
+  let day = futureDate.getDay();
+
+  let futureDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return futureDays[day];
+}
+
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function name(day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  let forecast = response.data.daily;
+  //let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  forecast.forEach(function name(forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="col-2">
           <div class="weather-forecast-date">
-          ${day}
+          ${formatDay(forecastDay.dt)}
           </div>
           <img 
-          src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" 
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" 
           alt="" 
           width="50px"/>
           <div>
-            <span class="weather-forecast-high">
-          18 
+            <span class="weather-forecast-high"> 
+            ${Math.round(forecastDay.temp.max)}° 
             </span>
             <span class="weather-forecast-low">
-          12
+            ${Math.round(forecastDay.temp.min)}° 
             </span>
           </div>
         </div>
         `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -62,6 +76,14 @@ function displayForecast() {
 }
 
 //Temp
+
+function getForecast(coordinates) {
+  let apiKey = "2daf65f0cdaa917f11026e8a128ce271";
+  let unit = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city-name");
@@ -81,6 +103,8 @@ function displayTemperature(response) {
   );
   weatherIconElement.setAttribute("alt", response.data.weather[0].description);
   celciusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 //City and then temp
@@ -152,5 +176,3 @@ fTemp.addEventListener("click", convertToFahrenheit);
 //let celciusTemperature = null;
 
 //celciusTemperature = response.data.main.temp;
-
-displayForecast();
